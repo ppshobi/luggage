@@ -15,6 +15,11 @@
                         @endif
 
                         Find secure places to keep your stuff
+
+                        <div style="width: 500px; height: 500px;">
+                            {!! Mapper::render() !!}
+                        </div>
+
                     </div>
                 </div>
             </div>
