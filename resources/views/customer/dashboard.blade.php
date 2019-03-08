@@ -1,29 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+#partners .card {
+    width: 300px;
+}
+</style>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Customer Dashboard</div>
+                    {{-- <div class="card-header">Customer Dashboard</div> --}}
 
-                    <div class="card-body">
+                    <div class="card-body" style="padding:0px;">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
                             </div>
                         @endif
 
-                        Find secure places to keep your stuff
-
-                        {{-- <div style="width: 100%; height: 500px;">
-                            {!! Mapper::render() !!}
-                        </div> --}}
-
-                        <div id="map" style="height:300px;"></div>
+                        <div id="map" style="height:400px;"></div>
 
                     </div>
                 </div>
+                
+                <div id="partners">
+
+                </div>
+
             </div>
         </div>
     </div>
@@ -44,30 +48,27 @@
 
         map.data.loadGeoJson('/api/facilities');
 
-        // map.data.setStyle(function (feature) {
-        //         let iconBase = "https://maps.google.com/mapfiles/ms/icons/";
-        //         return {
-        //             icon: feature.getProperty('gender') == "Female" ? iconBase + 'pink-dot.png' : iconBase + 'blue-dot.png'
-        //         };
-        //     }
-        // );
-
         let infoWindow = new google.maps.InfoWindow({
             pixelOffset: new google.maps.Size(0, -30)
         });
 
         map.data.addListener('click', function (event) {
-            infoWindow.setContent(event.feature.getProperty('name'));
+            infoWindow.setContent(event.feature.getProperty('name') + "<br>" + event.feature.getProperty('size'));
             infoWindow.setPosition(event.latLng);
             infoWindow.open(map);
         });
 
-        // map.data.loadGeoJson(url);
+        getLocations();
     }
 
     function getLocations() {
-        $.post( "api/getLocation", function( data ) {
-            alert(data);
+        var partners = '<div class="card-group">';
+        $.get( "/api/facilities", function( data ) {
+            $.each(data.features, function(k, v) {
+                partners +=  '<div class="card" style="width: 300px;margin: 10px 10px 0 0px;"><div class="card-body"><h5 class="card-title">' + v.properties.name + ' </h5> <p class="card-text"><strong>' + v.properties.size + '</strong></p><a href="javascript:void(0)" class="btn btn-primary">Book Now</a></div></div>'; 
+            });
+            partners += '</div>';
+            $('#partners').html(partners);
         });
     }
 
