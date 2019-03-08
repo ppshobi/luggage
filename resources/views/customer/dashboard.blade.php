@@ -57,7 +57,7 @@
         });
 
         map.data.addListener('click', function (event) {
-            infoWindow.setContent(event.feature.getProperty('name'));
+            infoWindow.setContent(event.feature.getProperty('name') + '<br>' +  event.feature.getProperty('price') );
             infoWindow.setPosition(event.latLng);
             infoWindow.open(map);
         });
