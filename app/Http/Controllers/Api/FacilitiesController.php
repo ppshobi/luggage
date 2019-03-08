@@ -19,7 +19,7 @@ class FacilitiesController extends Controller
     private function generateLocations()
     {
         $locations = [];
-        foreach (range(0,100) as $i)
+        foreach (range(0,20) as $i)
         {
             $locations[] = $this->generateLocation();
         }
@@ -35,8 +35,8 @@ class FacilitiesController extends Controller
             'geometry'   => [
                 'type'        => 'Point',
                 'coordinates' => [
-                    $faker->randomFloat(4, 12.9640, 19.8962),
-                    $faker->randomFloat(4, 77.39937, 87.86521),
+                    $faker->latitude(77.53, 77.62),
+                    $faker->longitude(12.94, 12.99),
                 ],
             ],
             'properties' => [

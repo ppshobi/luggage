@@ -31,15 +31,15 @@
 
 @section('scripts')
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3WcCHGnzBaFFLEtTsi4D2C7hLS26oaaY&callback=initMap"></script>
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3WcCHGnzBaFFLEtTsi4D2C7hLS26oaaY&callback=initMap"></script>
 
 <script>
 
     function initMap() {
         
         map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 8.7832, lng: 34.5085},
-            zoom: 3
+            center: {lat: 12.9542944, lng: 77.5905106},
+            zoom: 13
         });
 
         map.data.loadGeoJson('/api/facilities');
@@ -52,15 +52,15 @@
         //     }
         // );
 
-        // let infoWindow = new google.maps.InfoWindow({
-        //     pixelOffset: new google.maps.Size(0, -30)
-        // });
+        let infoWindow = new google.maps.InfoWindow({
+            pixelOffset: new google.maps.Size(0, -30)
+        });
 
-        // map.data.addListener('click', function (event) {
-        //     infoWindow.setContent(event.feature.getProperty('full_name'));
-        //     infoWindow.setPosition(event.latLng);
-        //     infoWindow.open(map);
-        // });
+        map.data.addListener('click', function (event) {
+            infoWindow.setContent(event.feature.getProperty('name'));
+            infoWindow.setPosition(event.latLng);
+            infoWindow.open(map);
+        });
 
         // map.data.loadGeoJson(url);
     }
