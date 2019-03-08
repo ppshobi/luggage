@@ -22,6 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/partner/dashboard', 'PartnerDashboardController@index')->name('partner.dashboard');
 Route::get('/customer/dashboard', 'CustomerDashboardController@index')->name('customer.dashboard');
 
+Route::get('booknow','BookingController@book')->name('book');
+
 Route::post('/storage/store', 'StorageController@store')->name('storage.store');
 
 Route::get('/api/facilities',  'Api\FacilitiesController@index');
