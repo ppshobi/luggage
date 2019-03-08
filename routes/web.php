@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/partner/dashboard', 'PartnerDashboardController@index')->name('partner.dashboard');
 Route::get('/customer/dashboard', 'CustomerDashboardController@index')->name('customer.dashboard');
+
+Route::post('/storage/store', 'StorageController@store')->name('storage.store');
