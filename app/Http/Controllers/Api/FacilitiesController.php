@@ -35,8 +35,8 @@ class FacilitiesController extends Controller
             'geometry'   => [
                 'type'        => 'Point',
                 'coordinates' => [
-                    $faker->latitude(12, 77),
-                    $faker->longitude(12, 77),
+                    $faker->randomFloat(4, 12.9640, 19.8962),
+                    $faker->randomFloat(4, 77.39937, 87.86521),
                 ],
             ],
             'properties' => [
