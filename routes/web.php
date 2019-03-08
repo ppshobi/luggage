@@ -23,3 +23,5 @@ Route::get('/partner/dashboard', 'PartnerDashboardController@index')->name('part
 Route::get('/customer/dashboard', 'CustomerDashboardController@index')->name('customer.dashboard');
 
 Route::post('/storage/store', 'StorageController@store')->name('storage.store');
+
+Route::get('/api/facilities',  'Api\FacilitiesController@index');
