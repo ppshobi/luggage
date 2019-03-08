@@ -23,6 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(auth()->user()->type == 1) {
+            return redirect()->to(route('partner.dashboard'));
+        }
+        return redirect()->to(route('customer.dashboard'));
     }
 }
