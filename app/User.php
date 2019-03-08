@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function storages()
+    {
+        return $this->hasMany(Storage::class, 'partner_id');
+    }
 }
