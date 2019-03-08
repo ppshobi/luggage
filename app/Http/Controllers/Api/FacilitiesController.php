@@ -43,6 +43,7 @@ class FacilitiesController extends Controller
                 'name' => $faker->streetAddress,
                 'size' => $faker->numberBetween(20, 40) . "kg",
                 'price' => $faker->numberBetween(50, 100) . "/hour",
+                'button' => '<a href="'. route('book') .'" class="btn btn-primary">Book Now</a>',
                 'qty'   => $faker->numberBetween(2,10),
             ],
         ];
