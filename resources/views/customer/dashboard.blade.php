@@ -15,11 +15,8 @@
             </div>
             <div class="col-md-7">
                 <div id="locationField">
-                    <input id="autocomplete"
-                            placeholder="Enter your address"
-                            onFocus="geolocate()"
-                            type="text"
-                            class="form-control"/>
+                    <button onclick="geolocate()"
+                            class="btn btn-primary"> Locate me </button>
                 </div>
             </div>
         </div>
@@ -59,7 +56,7 @@
 
 
 <script>
-
+var map;
 var cords = [];
     cords['lan'] = 12.9542944;
     cords['lon'] = 77.5905106;
@@ -97,17 +94,13 @@ var cords = [];
     }
 
     function geolocate() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-            var geolocation = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            var circle = new google.maps.Circle(
-                {center: geolocation, radius: position.coords.accuracy});
-                map.setBounds(circle.getBounds());
-            });
-        }
+
+        var  coords = {
+            lat: 12.9174555,
+            lng: 77.6469113
+        };
+        map.panTo(coords);
+        map.setZoom(14);
     }
 
     function getLocations() {

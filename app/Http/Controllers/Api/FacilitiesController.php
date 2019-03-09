@@ -19,7 +19,7 @@ class FacilitiesController extends Controller
     private function generateLocations()
     {
         $locations = [];
-        foreach (range(0,5) as $i)
+        foreach (range(0,50) as $i)
         {
             $locations[] = $this->generateLocation();
         }
