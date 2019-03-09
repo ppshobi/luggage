@@ -17,6 +17,18 @@ class BookingController extends Controller
         $this->middleware('auth');
     }
 
+    public function index()
+    {
+        return view('booking.index')->with([
+            'bookings' => Booking::all()
+        ]);
+    }
+
+    public function verify(Request $request)
+    {
+        return view('booking.verify');
+    }
+
     /**
      * Show the application dashboard.
      *
@@ -25,27 +37,28 @@ class BookingController extends Controller
     public function create(Request $request)
     {
         return view('booking.create')->with([
-            'name' => $request->name,
-            'size' => $request->size,
+            'name'  => $request->name,
+            'size'  => $request->size,
             'price' => $request->price,
+            'lat'   => $request->lat,
+            'lng'   => $request->lng,
         ]);
     }
 
     public function store(Request $request)
     {
-
         Booking::create([
-            'id' => $request->id,
             'user_id' => auth()->user()->id,
             'partner_id' => auth()->user()->id,
-            'facility_name' => $request->facility_name,
+            'facility_name' => $request->name,
             'lat' => $request->lat,
             'lng' => $request->lng,
-            'price' => $request->price,
+            'price' => explode('/', $request->price)[0],
             'qty' => $request->qty,
             'size' => $request->size,
-            'code' => $request->code,
+            'code' => rand(1000, 9999) . "-" . rand(1000, 9999) . "-" . rand(1000, 9999),
         ]);
-        dd($request->all());
+        session()->flash('alert-success', "Booking confirmed");
+        return redirect()->to(route('customer.dashboard'));
     }
 }

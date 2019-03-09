@@ -11,6 +11,8 @@
                             <div class="card-header">Details of the selected facility</div>
                             <form action="{{ route('booking.store') }}" method="post">
                                 @csrf
+                                <input type="hidden" name="lat" value="{{ $lat }}">
+                                <input type="hidden" name="lng" value="{{ $lng }}">
                                 <div class="card-body">
                                 <table class="table">
                                     <tbody>

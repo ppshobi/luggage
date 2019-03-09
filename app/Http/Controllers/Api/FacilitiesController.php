@@ -33,20 +33,22 @@ class FacilitiesController extends Controller
         $name = $faker->streetAddress;
         $size   = $faker->numberBetween(20, 40) . "kg";
         $price = $faker->numberBetween(50, 100) . "/hour";
+        $latitude = $faker->latitude(77.53, 77.62);
+        $longitude = $faker->longitude(12.94, 12.99);
         return [
             'type'       => 'Feature',
             'geometry'   => [
                 'type'        => 'Point',
                 'coordinates' => [
-                    $faker->latitude(77.53, 77.62),
-                    $faker->longitude(12.94, 12.99),
+                    $latitude,
+                    $longitude,
                 ],
             ],
             'properties' => [
                 'name' => $name,
                 'size' => $size,
                 'price' => $price,
-                'button' => '<a href="'. route('booking.create', ['name'=>$name, 'size' => $size, 'price' => $price]) .'" class="btn btn-primary">Book Now</a>',
+                'button' => '<a href="'. route('booking.create', ['name'=>$name, 'size' => $size, 'price' => $price, 'lat'=>$latitude, 'lng' => $longitude ]) .'" class="btn btn-primary">Book Now</a>',
                 'qty'   => $faker->numberBetween(2,10),
             ],
         ];
