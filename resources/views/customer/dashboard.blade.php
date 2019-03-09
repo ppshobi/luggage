@@ -10,7 +10,6 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    {{-- <div class="card-header">Customer Dashboard</div> --}}
 
                     <div class="card-body" style="padding:0px;">
                         @if (session('status'))
@@ -27,6 +26,7 @@
                 <div id="partners">
 
                 </div>
+                <h3 class="card-title pt-2">Book from our certified partners</h3>
 
             </div>
         </div>
@@ -65,7 +65,12 @@
         var partners = '<div class="card-group">';
         $.get( "/api/facilities", function( data ) {
             $.each(data.features, function(k, v) {
-                partners +=  '<div class="card" style="width: 300px;margin: 10px 10px 0 0px;"><div class="card-body"><h5 class="card-title">' + v.properties.name + ' </h5> <p class="card-text"><strong>' + v.properties.size + '</strong></p><a href="javascript:void(0)" class="btn btn-primary">Book Now</a></div></div>'; 
+                partners +=  '<div class="card" style="width: 300px;margin: 10px 10px 0 0px;">' +
+                    '<div class="card-body">' +
+                    '<h5 class="card-title">' + v.properties.name
+                    + ' </h5> <p class="card-text"><strong class="font-weight-bold text-success">'
+                    + v.properties.size + '</strong> of storage avaialble'
+                    + '</p></div><div class="card-footer"><a href="javascript:void(0)" class="btn btn-primary">Book Now</a></div></div>';
             });
             partners += '</div>';
             $('#partners').html(partners);

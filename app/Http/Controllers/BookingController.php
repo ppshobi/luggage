@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Booking;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -21,8 +22,30 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function book()
+    public function create(Request $request)
     {
-        dd('Booking Successfully');
+        return view('booking.create')->with([
+            'name' => $request->name,
+            'size' => $request->size,
+            'price' => $request->price,
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+
+        Booking::create([
+            'id' => $request->id,
+            'user_id' => auth()->user()->id,
+            'partner_id' => auth()->user()->id,
+            'facility_name' => $request->facility_name,
+            'lat' => $request->lat,
+            'lng' => $request->lng,
+            'price' => $request->price,
+            'qty' => $request->qty,
+            'size' => $request->size,
+            'code' => $request->code,
+        ]);
+        dd($request->all());
     }
 }

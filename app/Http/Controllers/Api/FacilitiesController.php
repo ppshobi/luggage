@@ -30,6 +30,9 @@ class FacilitiesController extends Controller
     private function generateLocation()
     {
         $faker = Faker\Factory::create();
+        $name = $faker->streetAddress;
+        $size   = $faker->numberBetween(20, 40) . "kg";
+        $price = $faker->numberBetween(50, 100) . "/hour";
         return [
             'type'       => 'Feature',
             'geometry'   => [
@@ -40,10 +43,10 @@ class FacilitiesController extends Controller
                 ],
             ],
             'properties' => [
-                'name' => $faker->streetAddress,
-                'size' => $faker->numberBetween(20, 40) . "kg",
-                'price' => $faker->numberBetween(50, 100) . "/hour",
-                'button' => '<a href="'. route('book') .'" class="btn btn-primary">Book Now</a>',
+                'name' => $name,
+                'size' => $size,
+                'price' => $price,
+                'button' => '<a href="'. route('booking.create', ['name'=>$name, 'size' => $size, 'price' => $price]) .'" class="btn btn-primary">Book Now</a>',
                 'qty'   => $faker->numberBetween(2,10),
             ],
         ];
