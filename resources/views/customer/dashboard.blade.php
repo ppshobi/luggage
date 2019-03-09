@@ -2,13 +2,20 @@
 
 @section('content')
 <style>
-#partners .card {
-    width: 300px;
+#partners {
+    overflow: scroll;
+    height: 400px;;
 }
+.grid-item { width: 200px; }
 </style>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-4">
+                <div id="partners" style="height:400px; overflow:scroll;">
+
+                </div>
+            </div>
+            <div class="col-md-8">
                 <div class="card">
                     {{-- <div class="card-header">Customer Dashboard</div> --}}
 
@@ -23,11 +30,6 @@
 
                     </div>
                 </div>
-                
-                <div id="partners">
-
-                </div>
-
             </div>
         </div>
     </div>
@@ -37,12 +39,26 @@
 
 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3WcCHGnzBaFFLEtTsi4D2C7hLS26oaaY&callback=initMap"></script>
 
+
 <script>
+
+var cords = [];
+    cords['lan'] = 12.9542944;
+    cords['lon'] = 77.5905106;
+
+    window.onload = function() {
+        var geoSuccess = function(position) {
+            cords['lan'] = position.coords.latitude;
+            cords['lon'] = position.coords.longitude;
+        };
+        navigator.geolocation.getCurrentPosition(geoSuccess);
+    };
+
 
     function initMap() {
         
         map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 12.9542944, lng: 77.5905106},
+            center: {lat: cords['lan'], lng: cords['lon']},
             zoom: 13
         });
 
@@ -62,14 +78,18 @@
     }
 
     function getLocations() {
-        var partners = '<div class="card-group">';
         $.get( "/api/facilities", function( data ) {
-            $.each(data.features, function(k, v) {
-                partners +=  '<div class="card" style="width: 300px;margin: 10px 10px 0 0px;"><div class="card-body"><h5 class="card-title">' + v.properties.name + ' </h5> <p class="card-text"><strong>' + v.properties.size + '</strong></p><a href="javascript:void(0)" class="btn btn-primary">Book Now</a></div></div>'; 
-            });
-            partners += '</div>';
-            $('#partners').html(partners);
+            generateCards(data.features);
         });
+    }
+
+    function generateCards(partners) {
+        var html = '';
+        $.each(partners, function(k, v) {
+            html +=  '<div class="card" style="margin-bottom:10px;"><div class="card-body"><h5 class="card-title">' + v.properties.name + ' </h5> <p class="card-text"><strong>' + v.properties.size + '</strong></p><a href="javascript:void(0)" class="btn btn-primary">Book Now</a></div></div>'; 
+        });
+
+        $('#partners').html(html);
     }
 
 </script>
