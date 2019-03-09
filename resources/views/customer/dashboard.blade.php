@@ -55,6 +55,7 @@ var cords = [];
         var geoSuccess = function(position) {
             cords['lan'] = position.coords.latitude;
             cords['lon'] = position.coords.longitude;
+            initMap();
         };
         navigator.geolocation.getCurrentPosition(geoSuccess);
     };
@@ -64,7 +65,7 @@ var cords = [];
         
         map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: cords['lan'], lng: cords['lon']},
-            zoom: 13
+            zoom: 12
         });
 
         map.data.loadGeoJson('/api/facilities');
