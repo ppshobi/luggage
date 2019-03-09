@@ -53,6 +53,7 @@
                             @if (Route::has('login'))
                                     @auth
                                         <li class="active"><a href="{{ url('/') }}"><span>Home</span></a></li>
+                                        <li class=""><a href="{{ url('/home') }}"><span>Dashboard</span></a></li>
                                     @else
                                         <li> <a href="{{ route('login') }}"><span>Login</span></a></li>
                                         @if (Route::has('register'))
@@ -94,7 +95,7 @@
                 </div>
 
                 <div class="form-search-wrap p-2" data-aos="fade-up" data-aos-delay="200">
-                    <form method="post">
+                    <form method="GET" action="{{ route('customer.dashboard') }}">
                         <div class="row align-items-center">
                             <div class="col-lg-12 col-xl-10 no-sm-border border-right">
                                 <div class="wrap-icon">

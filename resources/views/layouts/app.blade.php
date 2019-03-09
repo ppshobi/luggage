@@ -53,9 +53,24 @@
                         <div class="col-12 col-md-10 d-none d-xl-block">
                             <nav class="site-navigation position-relative text-right" role="navigation">
                                 <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                                    <li class=""><a href="{{ url('/') }}"><span>Home</span></a></li>
+                                    <li class="has-children">
+                                        <a href="#"><span>About</span></a>
+                                    </li>
+                                    <li><a href="#"><span>Blog</span></a></li>
+                                    <li><a href="#"><span>Contact</span></a></li>
                                     @if (Route::has('login'))
                                         @auth
-                                            <li class="active"><a href="{{ url('/') }}"><span>Home</span></a></li>
+                                            <li class="nav-item dropdown">
+                                                <a  href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                    <span>{{ __('Logout') }}</span>
+                                                </a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                    @csrf
+                                                </form>
+                                            </li>
                                         @else
                                             <li> <a href="{{ route('login') }}"><span>Login</span></a></li>
                                             @if (Route::has('register'))
@@ -63,11 +78,6 @@
                                             @endif
                                         @endauth
                                     @endif
-                                    <li class="has-children">
-                                        <a href="#"><span>About</span></a>
-                                    </li>
-                                    <li><a href="#"><span>Blog</span></a></li>
-                                    <li><a href="#"><span>Contact</span></a></li>
                                 </ul>
                             </nav>
                         </div>
