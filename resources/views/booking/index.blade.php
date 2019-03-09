@@ -3,9 +3,9 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header"><a href="/partner/dashboard">Partner Dashboard</a> | <a href="/orders">Recent Bookings</a> </div>
+                    <div class="card-header"><a href="/partner/dashboard">Partner Dashboard</a> | <a href="/booking">Recent Bookings</a> </div>
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header">Bookings</div>
@@ -33,7 +33,13 @@
                                             <td>{{ $booking->qty }}</td>
                                             <td>{{ $booking->price }}</td>
                                             <td>&#8377; {{ $booking->price * $booking->qty }}</td>
-                                            <td> <a href="/booking/{{$booking->id}}/verify" class="btn btn-sm btn-success">Verify Code</a> </td>
+                                            <td> 
+                                                @if ($booking->is_redeemed)
+                                                    <span style="background: #ddd;"> Redeemed </span>
+                                                @else
+                                                    <a href="/booking/{{$booking->id}}/verify" class="btn btn-sm btn-success">Verify Code</a> 
+                                                @endif
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>

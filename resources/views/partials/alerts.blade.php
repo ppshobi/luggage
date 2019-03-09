@@ -1,3 +1,4 @@
+<div class="container">
 @foreach (['danger', 'warning', 'success', 'info'] as $msg)
     @if(session()->has('alert-' . $msg))
         <div class="alerts">
@@ -7,3 +8,4 @@
         </div>
     @endif
 @endforeach
+</div>

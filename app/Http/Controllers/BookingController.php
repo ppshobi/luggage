@@ -24,9 +24,34 @@ class BookingController extends Controller
         ]);
     }
 
-    public function verify(Request $request)
+    public function verify(Request $request, $booking)
     {
-        return view('booking.verify');
+        return view('booking.verify')->with([
+            'booking' => Booking::find($booking)
+        ]);
+    }
+
+    public function confirm(Request $request, $booking)
+    {
+        if (! $request->code) {
+            \Session::flash('alert-danger', 'Code Invalid');
+            return redirect()->back();
+        }
+
+        $code = $request->code;
+        $customer_code = Booking::find($booking)->pluck('code')->first();
+
+        if ($code == $customer_code) {
+            $redeem = Booking::find($booking);
+            $redeem->is_redeemed = 1;
+            $redeem->save();
+
+            \Session::flash('alert-success', 'Code Redeemed Successfully');
+            return redirect('booking');
+        }
+        
+        \Session::flash('alert-danger', 'Something Went Wrong! Try Again!');
+        return redirect()->back();
     }
 
     /**

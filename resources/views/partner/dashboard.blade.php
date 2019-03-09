@@ -3,9 +3,9 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header"><a href="/partner/dashboard">Partner Dashboard</a> | <a href="/orders">Recent Bookings</a> </div>
+                    <div class="card-header"><a href="/partner/dashboard">Partner Dashboard</a> | <a href="/booking">Recent Bookings</a> </div>
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header">Facilities you own</div>

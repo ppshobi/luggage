@@ -26,6 +26,7 @@ Route::get('/booking', 'BookingController@index')->name('booking.index');
 Route::get('booking/create','BookingController@create')->name('booking.create');
 Route::post('booking/store','BookingController@store')->name('booking.store');
 Route::get('booking/{booking}/verify','BookingController@verify')->name('booking.verify');
+Route::post('booking/{booking}/verify','BookingController@confirm')->name('booking.confirm');
 
 Route::post('/storage/store', 'StorageController@store')->name('storage.store');
 
