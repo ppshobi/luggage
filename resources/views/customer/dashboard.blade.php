@@ -91,7 +91,11 @@ var cords = [];
     function generateCards(partners) {
         var html = '';
         $.each(partners, function(k, v) {
-            html +=  '<div class="card" style="margin-bottom:10px;"><div class="card-body"><h5 class="card-title">' + v.properties.name + ' </h5> <p class="card-text"><strong>' + v.properties.size + '</strong></p><a href="javascript:void(0)" class="btn btn-primary">Book Now</a></div></div>';
+            html +=  '<div class="card" style="margin-bottom:10px;"><div class="card-body"><h5 class="card-title">'
+                + v.properties.name
+                + ' </h5> <p class="card-text"><strong class="font-weight-bold text-success">'
+                + v.properties.size
+                + '</strong> of storage avaialble</p><a href="javascript:void(0)" class="btn btn-primary">Book Now</a></div></div>';
         });
 
         $('#partners').html(html);
