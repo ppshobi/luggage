@@ -19,7 +19,7 @@ class FacilitiesController extends Controller
     private function generateLocations()
     {
         $locations = [];
-        foreach (range(0,50) as $i)
+        foreach (range(0,100) as $i)
         {
             $locations[] = $this->generateLocation();
         }
@@ -29,12 +29,12 @@ class FacilitiesController extends Controller
 
     private function generateLocation()
     {
-        $faker = Faker\Factory::create();
-        $name = $faker->streetAddress;
-        $size   = $faker->numberBetween(20, 40) . "kg";
-        $price = $faker->numberBetween(50, 100) . "/hour";
-        $latitude = $faker->latitude(77.53, 77.62);
-        $longitude = $faker->longitude(12.94, 12.99);
+        $faker     = Faker\Factory::create();
+        $name      = $faker->streetAddress;
+        $size      = $faker->numberBetween(20, 40) . "kg";
+        $price     = $faker->numberBetween(50, 100) . "/hour";
+        $latitude  = $faker->latitude(77.53, 77.72);
+        $longitude = $faker->longitude(12.80, 13.10);
         return [
             'type'       => 'Feature',
             'geometry'   => [
