@@ -15,8 +15,7 @@
             </div>
             <div class="col-md-7">
                 <div id="locationField">
-                    <button onclick="geolocate()"
-                            class="btn btn-primary"> Locate me </button>
+                    <button onclick="geolocate()" class="btn btn-primary"> Locate me </button>
                 </div>
             </div>
         </div>
@@ -116,7 +115,7 @@ var cords = [];
                 + v.properties.name
                 + ' </h5> <p class="card-text"><strong class="font-weight-bold text-success">'
                 + v.properties.size
-                + '</strong> of storage avaialble</p><a href="javascript:void(0)" class="btn btn-primary">Book Now</a></div></div>';
+                + '</strong> of storage avaialble</p>' + v.properties.button  +'</div></div>';
         });
 
         $('#partners').html(html);
