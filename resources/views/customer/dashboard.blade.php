@@ -93,6 +93,10 @@ var cords = [];
             infoWindow.open(map);
         });
 
+        getLocations();
+    }
+
+    function geolocate() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
             var geolocation = {
@@ -104,8 +108,6 @@ var cords = [];
                 map.setBounds(circle.getBounds());
             });
         }
-
-        getLocations();
     }
 
     function getLocations() {
