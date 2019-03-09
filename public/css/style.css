@@ -284,7 +284,9 @@ h1, h2, h3, h4, h5,
 
 .overlap-to-top {
   margin-top: -150px; }
-
+.listing-image{
+    height: 300px !important;
+}
 .ul-check {
   margin-bottom: 50px; }
   .ul-check li {

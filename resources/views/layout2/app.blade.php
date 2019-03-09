@@ -116,13 +116,40 @@
 </div>
 
 
+<div class="site-section" data-aos="fade">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 text-center border-primary">
+                <h2 class="font-weight-light text-primary">How It Works</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-4  col-lg-4 text-center">
+                <img src="{{ asset('img/phone.svg') }}" alt="Image" class="img-fluid">
+                <h2 class="mb-1"><a href="#">Book Online</a></h2>
+                <span class="address">Find the location closest to you. We have locations all around the city.</span>
+            </div>
+            <div class="col-md-6 mb-4  col-lg-4 text-center">
+                    <img src="{{ asset('img/bags.svg') }}" alt="Image" class="img-fluid">
+                    <h2 class="mb-1"><a href="#">Drop Off Items</a></h2>
+                    <span class="address">Show your booking receipt and you're good to go. Secured and insured.</span>
+            </div>
+            <div class="col-md-6 mb-4  col-lg-4 text-center">
+                    <img src="{{ asset('img/city.svg') }}" alt="Image" class="img-fluid">
+                    <h2 class="mb-1"><a href="#">Enjoy the City</a></h2>
+                    <span class="address">Go about your day without lugging around your things.</span>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="site-section" data-aos="fade">
     <div class="container">
         <div class="row justify-content-center mb-5">
             <div class="col-md-7 text-center border-primary">
-                <h2 class="font-weight-light text-primary">Most Visited Places</h2>
-                <p class="color-black-opacity-5">Lorem Ipsum Dolor Sit Amet</p>
+                <h2 class="font-weight-light text-primary">Top Destination</h2>
+                <p class="color-black-opacity-5">The world's largest network of luggage storage 2000+ places in more than 250 cities</p>
             </div>
         </div>
 
@@ -131,13 +158,11 @@
 
                 <div class="listing-item">
                     <div class="listing-image">
-                        <img src="img/img_1.jpg" alt="Image" class="img-fluid">
+                        <img src="{{ asset('img/kerala.jpg') }}" alt="Image" class="img-fluid" width="400px" height="400px">
                     </div>
                     <div class="listing-item-content">
                         <a href="#" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
-                        <a class="px-3 mb-3 category" href="#">Stores</a>
-                        <h2 class="mb-1"><a href="#">Sticky Band</a></h2>
-                        <span class="address">West Orange, New York</span>
+                        <span class="address">Kerala</span>
                     </div>
                 </div>
 
@@ -146,13 +171,11 @@
 
                 <div class="listing-item">
                     <div class="listing-image">
-                        <img src="img/img_2.jpg" alt="Image" class="img-fluid">
+                        <img src="{{ asset('img/Chennai.jpg') }}" alt="Image" class="img-fluid" width="400px" height="400px">
                     </div>
                     <div class="listing-item-content">
-                        <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                        <a class="px-3 mb-3 category" href="#">Restaurants</a>
-                        <h2 class="mb-1"><a href="#">Sticky Band</a></h2>
-                        <span class="address">West Orange, New York</span>
+                        <a href="#" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
+                        <span class="address">Tamil Nadu</span>
                     </div>
                 </div>
 
@@ -161,13 +184,11 @@
 
                 <div class="listing-item">
                     <div class="listing-image">
-                        <img src="img/img_3.jpg" alt="Image" class="img-fluid">
+                        <img src="{{ asset('img/ahmedabad.jpg') }}" alt="Image" class="img-fluid" width="400px" height="400px">
                     </div>
                     <div class="listing-item-content">
-                        <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                        <a class="px-3 mb-3 category" href="#">Events</a>
-                        <h2 class="mb-1"><a href="#">Sticky Band</a></h2>
-                        <span class="address">West Orange, New York</span>
+                        <a href="#" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
+                        <span class="address">Gujarat</span>
                     </div>
                 </div>
 
@@ -177,63 +198,6 @@
 </div>
 
 
-
-
-<div class="site-section">
-    <div class="container">
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-7 text-center border-primary">
-                <h2 class="font-weight-light text-primary">Popular Categories</h2>
-                <p class="color-black-opacity-5">Lorem Ipsum Dolor Sit Amet</p>
-            </div>
-        </div>
-
-        <div class="row align-items-stretch">
-            <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-                <a href="#" class="popular-category h-100">
-                    <span class="icon"><span class="flaticon-house"></span></span>
-                    <span class="caption mb-2 d-block">Appartments</span>
-                    <span class="number">3,921</span>
-                </a>
-            </div>
-            <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-                <a href="#" class="popular-category h-100">
-                    <span class="icon"><span class="flaticon-guitar"></span></span>
-                    <span class="caption mb-2 d-block">Events</span>
-                    <span class="number">398</span>
-                </a>
-            </div>
-            <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-                <a href="#" class="popular-category h-100">
-                    <span class="icon"><span class="flaticon-gym"></span></span>
-                    <span class="caption mb-2 d-block">Fitness</span>
-                    <span class="number">1,229</span>
-                </a>
-            </div>
-            <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-                <a href="#" class="popular-category h-100">
-                    <span class="icon"><span class="flaticon-shopping-bag"></span></span>
-                    <span class="caption mb-2 d-block">Department Store</span>
-                    <span class="number">32,891</span>
-                </a>
-            </div>
-            <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-                <a href="#" class="popular-category h-100">
-                    <span class="icon"><span class="flaticon-mexican-taco"></span></span>
-                    <span class="caption mb-2 d-block">Restaurants</span>
-                    <span class="number">29,221</span>
-                </a>
-            </div>
-            <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-                <a href="#" class="popular-category h-100">
-                    <span class="icon"><span class="flaticon-cocktail"></span></span>
-                    <span class="caption mb-2 d-block">Other</span>
-                    <span class="number">219</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="site-section">
     <div class="container">
@@ -247,9 +211,11 @@
                 <p class="mb-4">Adipisci dolore reprehenderit est et assumenda veritatis, ex voluptate odio consequuntur quo ipsa accusamus dicta laborum exercitationem aspernatur reiciendis perspiciatis!</p>
 
                 <ul class="ul-check list-unstyled success">
-                    <li>Adipisci dolore reprehenderit</li>
-                    <li>Accusamus dicta laborum</li>
-                    <li>Delectus sed labore</li>
+                    <li>Checked luggage storages</li>
+                    <li>available 24/7</li>
+                    <li>Insurance</li>
+                    <li>Secure payment</li>
+                    <li>Customer service</li>
                 </ul>
             </div>
         </div>
