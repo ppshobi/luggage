@@ -84,6 +84,6 @@ class BookingController extends Controller
             'code' => rand(1000, 9999) . "-" . rand(1000, 9999) . "-" . rand(1000, 9999),
         ]);
         session()->flash('alert-success', "Booking confirmed");
-        return redirect()->to(route('customer.dashboard'));
+        return redirect()->to(route('customer.vouchers'));
     }
 }

@@ -55,6 +55,7 @@ var cords = [];
     cords['lon'] = 77.5905106;
 
     window.onload = function() {
+        getLocations();
         var geoSuccess = function(position) {
             cords['lan'] = position.coords.latitude;
             cords['lon'] = position.coords.longitude;
@@ -83,7 +84,6 @@ var cords = [];
             infoWindow.open(map);
         });
 
-        getLocations();
     }
 
     function geolocate() {
@@ -105,7 +105,7 @@ var cords = [];
     function generateCards(partners) {
         var html = '';
         $.each(partners, function(k, v) {
-            html +=  '<div class="card" style="margin-bottom:10px;"><div class="card-body"><h5 class="card-title">'
+            html +=  '<div class="card" style="margin-bottom:10px;" id="'+ v.properties.id +'"><div class="card-body"><h5 class="card-title">'
                 + v.properties.name
                 + ' </h5> <p class="card-text"><strong class="font-weight-bold text-success">'
                 + v.properties.size
