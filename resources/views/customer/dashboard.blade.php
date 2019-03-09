@@ -1,21 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-#partners {
-    overflow: scroll;
-    height: 100%;
-}
-.grid-item { width: 200px; }
-</style>
     <div class="container">
         <div class="row">
             <div class="col-md-5">
                 <h3 class="card-title pt-2">Book from our certified partners</h3>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-7 text-right">
                 <div id="locationField">
                     <button onclick="geolocate()" class="btn btn-primary"> Locate me </button>
+                    <a href="/customer/myvouchers" class="btn btn-primary"> My Bookings </a>
                 </div>
             </div>
         </div>

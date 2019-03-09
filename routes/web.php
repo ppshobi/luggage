@@ -28,6 +28,8 @@ Route::post('booking/store','BookingController@store')->name('booking.store');
 Route::get('booking/{booking}/verify','BookingController@verify')->name('booking.verify');
 Route::post('booking/{booking}/verify','BookingController@confirm')->name('booking.confirm');
 
+Route::get('/customer/myvouchers', 'CustomerDashboardController@vouchers')->name('customer.vouchers');
+
 Route::post('/storage/store', 'StorageController@store')->name('storage.store');
 
 Route::get('/api/facilities',  'Api\FacilitiesController@index');
