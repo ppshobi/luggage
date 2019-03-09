@@ -148,7 +148,7 @@
     <div class="container">
         <div class="row justify-content-center mb-5">
             <div class="col-md-7 text-center border-primary">
-                <h2 class="font-weight-light text-primary">Top Destination</h2>
+                <h2 class="font-weight-light text-primary">Top Locations</h2>
                 <p class="color-black-opacity-5">The world's largest network of luggage storage 2000+ places in more than 250 cities</p>
             </div>
         </div>
