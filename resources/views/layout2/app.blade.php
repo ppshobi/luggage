@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Listed &mdash; Colorlib Website Template</title>
+    <title>{{ config('app.name') }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -45,25 +45,26 @@
             <div class="row align-items-center">
 
                 <div class="col-11 col-xl-2">
-                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">Listed</a></h1>
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">{{ config('app.name') }}</a></h1>
                 </div>
                 <div class="col-12 col-md-10 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-right" role="navigation">
-
                         <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-                            <li class="active"><a href="index.html"><span>Home</span></a></li>
-                            <li><a href="listings.html"><span>Listings</span></a></li>
+                            @if (Route::has('login'))
+                                    @auth
+                                        <li class="active"><a href="{{ url('/') }}"><span>Home</span></a></li>
+                                    @else
+                                        <li> <a href="{{ route('login') }}"><span>Login</span></a></li>
+                                        @if (Route::has('register'))
+                                            <li><a href="{{ route('register') }}"><span>Register</span></a></li>
+                                        @endif
+                                    @endauth
+                            @endif
                             <li class="has-children">
-                                <a href="about.html"><span>About</span></a>
-                                <ul class="dropdown">
-                                    <li><a href="#">The Company</a></li>
-                                    <li><a href="#">The Leadership</a></li>
-                                    <li><a href="#">Philosophy</a></li>
-                                    <li><a href="#">Careers</a></li>
-                                </ul>
+                                <a href="#"><span>About</span></a>
                             </li>
-                            <li><a href="blog.html"><span>Blog</span></a></li>
-                            <li><a href="contact.html"><span>Contact</span></a></li>
+                            <li><a href="#"><span>Blog</span></a></li>
+                            <li><a href="#"><span>Contact</span></a></li>
                         </ul>
                     </nav>
                 </div>
