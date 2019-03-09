@@ -4,14 +4,28 @@
 <style>
 #partners {
     overflow: scroll;
-    height: 400px;;
+    height: 100%;
 }
 .grid-item { width: 200px; }
 </style>
     <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <h3 class="card-title pt-2">Book from our certified partners</h3>
+            </div>
+            <div class="col-md-7">
+                <div id="locationField">
+                    <input id="autocomplete"
+                            placeholder="Enter your address"
+                            onFocus="geolocate()"
+                            type="text"
+                            class="form-control"/>
+                </div>
+            </div>
+        </div>
         <div class="row justify-content-center">
             <div class="col-md-4">
-                <div id="partners" style="height:400px; overflow:scroll;">
+                <div id="partners" style="height:700px; overflow:scroll;">
 
                 </div>
             </div>
@@ -25,7 +39,7 @@
                             </div>
                         @endif
 
-                        <div id="map" style="height:400px;"></div>
+                        <div id="map" style="height:700px;"></div>
 
                     </div>
                 </div>
@@ -33,7 +47,6 @@
                 <div id="partners">
 
                 </div>
-                <h3 class="card-title pt-2">Book from our certified partners</h3>
 
             </div>
         </div>
@@ -42,7 +55,7 @@
 
 @section('scripts')
 
-<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3WcCHGnzBaFFLEtTsi4D2C7hLS26oaaY&callback=initMap"></script>
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3WcCHGnzBaFFLEtTsi4D2C7hLS26oaaY&callback=initMap&libraries=places"></script>
 
 
 <script>
@@ -80,6 +93,18 @@ var cords = [];
             infoWindow.open(map);
         });
 
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle(
+                {center: geolocation, radius: position.coords.accuracy});
+                map.setBounds(circle.getBounds());
+            });
+        }
+
         getLocations();
     }
 
@@ -101,7 +126,6 @@ var cords = [];
 
         $('#partners').html(html);
     }
-
 </script>
 
 @endsection
