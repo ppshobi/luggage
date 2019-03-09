@@ -54,11 +54,9 @@
                             <nav class="site-navigation position-relative text-right" role="navigation">
                                 <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
                                     <li class=""><a href="{{ url('/') }}"><span>Home</span></a></li>
-                                    <li class="has-children">
-                                        <a href="#"><span>About</span></a>
-                                    </li>
-                                    <li><a href="#"><span>Blog</span></a></li>
-                                    <li><a href="#"><span>Contact</span></a></li>
+                                    @auth
+                                    <li class=""><span><a href="{{ route('home') }}">Dashboard</a></span></li>
+                                    @endauth
                                     @if (Route::has('login'))
                                         @auth
                                             <li class="nav-item dropdown">
@@ -72,7 +70,7 @@
                                                 </form>
                                             </li>
                                         @else
-                                            <li> <a href="{{ route('login') }}"><span>Login</span></a></li>
+                                            <li><a href="{{ route('login') }}"><span>Login</span></a></li>
                                             @if (Route::has('register'))
                                                 <li><a href="{{ route('register') }}"><span>Register</span></a></li>
                                             @endif
@@ -81,7 +79,6 @@
                                 </ul>
                             </nav>
                         </div>
-
 
                         <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
 

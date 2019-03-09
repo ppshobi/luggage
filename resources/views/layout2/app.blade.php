@@ -61,11 +61,23 @@
                                         @endif
                                     @endauth
                             @endif
-                            <li class="has-children">
+                            <li>
                                 <a href="#"><span>About</span></a>
                             </li>
                             <li><a href="#"><span>Blog</span></a></li>
                             <li><a href="#"><span>Contact</span></a></li>
+                            @auth
+                                    <li class="nav-item dropdown">
+                                        <a  href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            <span>{{ __('Logout') }}</span>
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </li>
+                            @endauth
                         </ul>
                     </nav>
                 </div>
