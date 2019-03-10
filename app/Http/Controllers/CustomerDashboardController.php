@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Cornford\Googlmapper\Facades\MapperFacade as Mapper;
+use App\Booking;
+use Auth;
 
 class CustomerDashboardController extends Controller
 {
@@ -16,5 +17,13 @@ class CustomerDashboardController extends Controller
     {
         $data = 'test';
         return response($data);
+    }
+
+    public function vouchers()
+    {
+        $booking = Booking::where('user_id', Auth::user()->id)->get();
+        return view('customer.voucher')->with([
+            'bookings' => $booking
+        ]);
     }
 }

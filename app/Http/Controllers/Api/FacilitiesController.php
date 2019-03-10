@@ -30,6 +30,7 @@ class FacilitiesController extends Controller
     private function generateLocation()
     {
         $faker     = Faker\Factory::create();
+        $id        = $faker->randomNumber();
         $name      = $faker->streetAddress;
         $size      = $faker->numberBetween(20, 40) . "kg";
         $price     = $faker->numberBetween(50, 100) . "/hour";
@@ -45,6 +46,7 @@ class FacilitiesController extends Controller
                 ],
             ],
             'properties' => [
+                'id' => $id,
                 'name' => $name,
                 'size' => $size,
                 'price' => $price,
