@@ -13,9 +13,9 @@
             <div class="col-md-5">
                 <h3 class="card-title pt-2">Book from our certified partners</h3>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-7 d-flex justify-content-end">
                 <div id="locationField">
-                    <button onclick="geolocate()" class="btn btn-primary"> Locate me </button>
+                    <button onclick="geolocate()" class="btn btn-primary"> <i class="fa fa-location-arrow   "></i> Locate me </button>
                 </div>
             </div>
         </div>
